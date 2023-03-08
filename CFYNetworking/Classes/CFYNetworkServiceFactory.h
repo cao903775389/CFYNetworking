@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CFYNetworking/CFYNetworkServiceProtocol.h>
+#import <CFYNetworking/CFYNetworkAPIBaseService.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
-- (id <CFYNetworkServiceProtocol>)serviceWithIdentifier:(NSString *)identifier;
+- (CFYNetworkAPIBaseService *)serviceWithIdentifier:(NSString *)identifier;
 
 @end
 

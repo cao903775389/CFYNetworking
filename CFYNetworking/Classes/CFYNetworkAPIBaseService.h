@@ -1,25 +1,21 @@
 //
-//  CFYNetworkServiceProtocol.h
+//  CFYNetworkAPIBaseService.h
 //  CFYNetworking
 //
 //  Created by caofengyang on 2023/3/8.
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFNetworking.h>
-#import <CFYNetworking/CFYNetworkDefines.h>
+#import <CFYNetworking/CFYNetworkServiceProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol CFYNetworkHTTPRequest;
-@class CFYNetworkBaseResponse;
-@class CFYNetworkAPIBaseManager;
 
-@protocol CFYNetworkServiceProtocol <NSObject>
+@interface CFYNetworkAPIBaseService : NSObject
 
-//根路径
-- (NSString *)baseURL;
-
-@optional
+//构造请求
+- (id<CFYNetworkHTTPRequest>)requestWithParams:(NSDictionary *)params
+                                       apiPath:(NSString *)apiPath
+                                   requestType:(CFYNetworkRequestType)requestType;
 
 //处理返回数据
 - (NSDictionary *)handleResponse:(NSURLResponse *)response
@@ -39,11 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
                             errorType:(CFYNetworkAPIManagerErrorType)errorType;
 
 - (AFHTTPSessionManager *)sessionManager;
-
-//构造请求
-- (id<CFYNetworkHTTPRequest>)requestWithParams:(NSDictionary *)params
-                                       apiPath:(NSString *)apiPath
-                                   requestType:(CFYNetworkRequestType)requestType;
 
 @end
 

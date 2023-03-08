@@ -9,7 +9,7 @@
 
 @interface CFYNetworkServiceFactory ()
 
-@property (nonatomic, strong) NSMutableDictionary<NSString *, id<CFYNetworkServiceProtocol>> *serviceStorage;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, CFYNetworkAPIBaseService *> *serviceStorage;
 
 @end
 
@@ -26,9 +26,9 @@
 }
 
 #pragma mark - public methods
-- (id <CFYNetworkServiceProtocol>)serviceWithIdentifier:(NSString *)identifier {
+- (CFYNetworkAPIBaseService *)serviceWithIdentifier:(NSString *)identifier {
     if (self.serviceStorage[identifier] == nil) {
-        id<CFYNetworkServiceProtocol> service = [self newServiceWithIdentifier:identifier];
+        CFYNetworkAPIBaseService *service = [self newServiceWithIdentifier:identifier];
         if (service) {
             self.serviceStorage[identifier] = service;
         } else {
@@ -39,19 +39,19 @@
 }
 
 #pragma mark - private methods
-- (id <CFYNetworkServiceProtocol>)newServiceWithIdentifier:(NSString *)identifier {
+- (CFYNetworkAPIBaseService *)newServiceWithIdentifier:(NSString *)identifier {
     Class serviceClass = NSClassFromString(identifier);
-    id<CFYNetworkServiceProtocol> instance = [[serviceClass alloc] init];
-    if ([instance conformsToProtocol:@protocol(CFYNetworkServiceProtocol)]) {
+    CFYNetworkAPIBaseService *instance = [[serviceClass alloc] init];
+    if (instance) {
         return instance;
     } else {
-        NSCAssert(NO, @"service未实现CFYNetworkServiceProtocol协议");
+        NSCAssert(NO, @"service未找到对应类");
         return nil;
     }
 }
 
 #pragma mark - getters and setters
-- (NSMutableDictionary<NSString *, id<CFYNetworkServiceProtocol>> *)serviceStorage {
+- (NSMutableDictionary<NSString *, CFYNetworkAPIBaseService *> *)serviceStorage {
     if (!_serviceStorage) {
         _serviceStorage = [NSMutableDictionary dictionary];
     }

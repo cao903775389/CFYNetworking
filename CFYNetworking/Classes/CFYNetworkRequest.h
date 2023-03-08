@@ -10,11 +10,29 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CFYNetworkGetRequest : NSObject
+@interface CFYNetworkHTTPRequest : NSObject <CFYNetworkHTTPRequest>
 
 @end
 
-@interface CFYNetworkPostRequest : NSObject
+@interface CFYNetworkGetRequest : CFYNetworkHTTPRequest
+
+@end
+
+@interface CFYNetworkPostRequest : CFYNetworkHTTPRequest
+
+@end
+
+@interface CFYNetworkPutRequest : CFYNetworkHTTPRequest
+
+@end
+
+@interface CFYNetworkDeleteRequest : CFYNetworkHTTPRequest
+
+@end
+
+@interface CFYNetworkHTTPRequest (Convenient)
+
++ (CFYNetworkHTTPRequest *)requestWithType:(CFYNetworkRequestType)requestType;
 
 @end
 

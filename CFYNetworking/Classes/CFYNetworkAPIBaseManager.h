@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) BOOL isLoading;
 @property (nonatomic, strong, readonly) CFYNetworkBaseResponse * _Nonnull response;
 @property (nonatomic, assign, readonly) CFYNetworkAPIManagerErrorType errorType;
-@property (nonatomic, copy, readonly, nullable) NSString * _Nullable errorMsg;
+@property (nonatomic, copy, readonly) NSString * _Nullable errorMsg;
 
 //delegate
 - (void)addDelegate:(id<CFYNetworkAPIManagerDelegate>)delegate;

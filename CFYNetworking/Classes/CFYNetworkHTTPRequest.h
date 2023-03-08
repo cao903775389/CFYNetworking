@@ -7,15 +7,21 @@
 
 #import <Foundation/Foundation.h>
 #import <CFYNetworking/CFYNetworkDefines.h>
-#import <CFYNetworking/CFYNetworkServiceProtocol.h>
+#import <CFYNetworking/CFYNetworkAPIBaseService.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol CFYNetworkHTTPRequest <NSObject>
 
-- (CFYNetworkRequestType)requestType;
-- (NSURLRequest *)urlRequest;
-- (id<CFYNetworkServiceProtocol>)service;
+//请求path
+@property (nonatomic, copy) NSString *apiPath;
+//请求参数
+@property (nonatomic, copy, nullable) NSDictionary *params;
+//域名路径
+@property (nonatomic, copy) NSString *baseURL;
+@property (nonatomic, weak) CFYNetworkAPIBaseService *service;
+
+- (NSMutableURLRequest *)urlRequest;
 
 @end
 

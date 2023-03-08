@@ -119,7 +119,7 @@
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *requestIdList;
 @property (nonatomic, strong, readwrite) CFYNetworkBaseResponse * _Nonnull response;
 @property (nonatomic, assign, readwrite) CFYNetworkAPIManagerErrorType errorType;
-@property (nonatomic, copy, readwrite, nullable) NSString * _Nullable errorMsg;
+@property (nonatomic, copy, readwrite) NSString * _Nullable errorMsg;
 
 @end
 
@@ -170,7 +170,7 @@
     }
     
     //初始化service
-    id<CFYNetworkServiceProtocol> service = [[CFYNetworkServiceFactory sharedInstance] serviceWithIdentifier:self.child.serviceIdentifier];
+    CFYNetworkAPIBaseService *service = [[CFYNetworkServiceFactory sharedInstance] serviceWithIdentifier:self.child.serviceIdentifier];
     //创建request
     id<CFYNetworkHTTPRequest> request = [service requestWithParams:reformParams apiPath:self.child.apiPath requestType:self.child.requestType];
     

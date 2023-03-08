@@ -7,7 +7,7 @@
 
 #import <CFYNetworking/CFYNetworkTaskManager.h>
 #import <AFNetworking/AFNetworking.h>
-#import <CFYNetworking/CFYNetworkServiceProtocol.h>
+#import <CFYNetworking/CFYNetworkAPIBaseService.h>
 
 @interface CFYNetworkTaskManager ()
 
@@ -85,7 +85,7 @@
 }
 
 #pragma mark - Private Method
-- (AFURLSessionManager *)sessionManagerWithService:(id<CFYNetworkServiceProtocol>)service {
+- (AFURLSessionManager *)sessionManagerWithService:(CFYNetworkAPIBaseService *)service {
     AFURLSessionManager *sessionManager = nil;
     if ([service respondsToSelector:@selector(sessionManager)]) {
         sessionManager = service.sessionManager;
