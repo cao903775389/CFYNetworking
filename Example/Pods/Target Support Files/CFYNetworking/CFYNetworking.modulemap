@@ -1,0 +1,6 @@
+framework module CFYNetworking {
+  umbrella header "CFYNetworking-umbrella.h"
+
+  export *
+  module * { export * }
+}

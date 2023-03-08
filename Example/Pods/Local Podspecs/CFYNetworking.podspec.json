@@ -1,0 +1,28 @@
+{
+  "name": "CFYNetworking",
+  "version": "1.0.0",
+  "summary": "网络库封装",
+  "description": "网络库封装",
+  "homepage": "https://github.com/cao903775389/CFYNetworking",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "caofengyang": "17600122188@163.com"
+  },
+  "source": {
+    "git": "https://github.com/cao903775389/CFYNetworking.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "CFYNetworking/Classes/**/*",
+  "public_header_files": "Pod/Classes/**/*.h",
+  "dependencies": {
+    "AFNetworking": [
+      "~> 2.3"
+    ]
+  }
+}
