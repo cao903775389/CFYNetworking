@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1D14C229B9EC440080DAE0 /* CFYDemoAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D14C129B9EC440080DAE0 /* CFYDemoAPIManager.m */; };
 		1ACC901729B8AE4B008CBEE8 /* CFYNetworkAPIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC901629B8AE4A008CBEE8 /* CFYNetworkAPIService.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A1D14C029B9EC440080DAE0 /* CFYDemoAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFYDemoAPIManager.h; sourceTree = "<group>"; };
+		1A1D14C129B9EC440080DAE0 /* CFYDemoAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFYDemoAPIManager.m; sourceTree = "<group>"; };
 		1ACC901529B8AE4A008CBEE8 /* CFYNetworkAPIService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFYNetworkAPIService.h; sourceTree = "<group>"; };
 		1ACC901629B8AE4A008CBEE8 /* CFYNetworkAPIService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFYNetworkAPIService.m; sourceTree = "<group>"; };
 		5FA3B0B651C171E19934D844 /* Pods_CFYNetworking_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CFYNetworking_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +143,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* CFYViewController.h */,
 				6003F5A6195388D20070C39A /* CFYViewController.m */,
+				1A1D14C029B9EC440080DAE0 /* CFYDemoAPIManager.h */,
+				1A1D14C129B9EC440080DAE0 /* CFYDemoAPIManager.m */,
 				1ACC901529B8AE4A008CBEE8 /* CFYNetworkAPIService.h */,
 				1ACC901629B8AE4A008CBEE8 /* CFYNetworkAPIService.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
@@ -392,6 +397,7 @@
 			files = (
 				1ACC901729B8AE4B008CBEE8 /* CFYNetworkAPIService.m in Sources */,
 				6003F59E195388D20070C39A /* CFYAppDelegate.m in Sources */,
+				1A1D14C229B9EC440080DAE0 /* CFYDemoAPIManager.m in Sources */,
 				6003F5A7195388D20070C39A /* CFYViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

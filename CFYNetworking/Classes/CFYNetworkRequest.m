@@ -23,7 +23,7 @@
 }
 
 - (NSMutableURLRequest *)urlRequest {
-    NSString *urlString = [NSString stringWithFormat:@"%@/%@", self.baseURL, self.apiPath];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", self.baseURL, self.apiPath];
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"GET"
                                                                        URLString:urlString
                                                                       parameters:self.params
@@ -94,7 +94,7 @@
         default:
             break;
     }
-    return nil;
+    return request;
 }
 
 @end

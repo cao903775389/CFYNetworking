@@ -38,4 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (CFYNetworkAPIManagerErrorType)manager:(CFYNetworkAPIBaseManager *_Nonnull)manager isCorrectWithParamsData:(NSDictionary *_Nullable)data;
 @end
 
+//参数组装
+@protocol CFYNetworkAPIManagerParamSource <NSObject>
+@required
+- (NSDictionary *_Nullable)paramsForApi:(CFYNetworkAPIBaseManager *_Nonnull)manager;
+@end
+
+
 NS_ASSUME_NONNULL_END

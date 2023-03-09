@@ -15,5 +15,6 @@
 #import <CFYNetworking/CFYNetworkBaseResponse.h>
 #import <CFYNetworking/CFYNetworkURLSessionTask.h>
 #import <CFYNetworking/CFYNetworkAPIBaseService.h>
+#import <CFYNetworking/CFYNetworkAPIManager.h>
 
 #endif /* CFYNetworking_h */

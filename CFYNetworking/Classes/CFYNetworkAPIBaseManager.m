@@ -155,7 +155,8 @@
 #pragma mark - Public Method
 // start
 - (void)loadData {
-    [self loadDataWithParams:nil];
+    NSDictionary *params = [self.paramSource paramsForApi:self];
+    [self loadDataWithParams:params];
 }
 
 - (void)loadDataWithParams:(NSDictionary *)params {
@@ -234,7 +235,9 @@
         self.errorType = CFYNetworkAPIManagerErrorTypeSuccess;
         dispatch_async(dispatch_get_main_queue(), ^{
             //外部回调处理
-            [self.delegateArray performSelector:@selector(managerCallAPIDidSuccess:) withObject:self];
+            for (id<CFYNetworkAPIManagerDelegate> delegate in [self delegates]) {
+                [delegate managerCallAPIDidSuccess:self];
+            }
         });
     } else {
         [self failedOnCallingAPI:response withErrorType:errorType];
@@ -282,7 +285,7 @@
         return;
     }
     
-    id<CFYNetworkServiceProtocol> service = [[CFYNetworkServiceFactory sharedInstance] serviceWithIdentifier:self.child.serviceIdentifier];
+    CFYNetworkAPIBaseService *service = [[CFYNetworkServiceFactory sharedInstance] serviceWithIdentifier:self.child.serviceIdentifier];
     BOOL shouldContinue = [service handleCommonErrorWithResponse:response manager:self errorType:errorType];
     if (shouldContinue == NO) {
         return;
@@ -300,7 +303,9 @@
 
     // 其他错误
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.delegateArray performSelector:@selector(managerCallAPIDidFailed:) withObject:self];
+        for (id<CFYNetworkAPIManagerDelegate> delegate in [self delegates]) {
+            [delegate managerCallAPIDidFailed:self];
+        }
     });
 }
                                       
@@ -315,6 +320,10 @@
     if (requestIDToRemove) {
         [self.requestIdList removeObject:requestIDToRemove];
     }
+}
+
+- (NSArray<id<CFYNetworkAPIManagerDelegate>> *)delegates {
+    return self.delegateArray.objectsArray;
 }
 
 @end

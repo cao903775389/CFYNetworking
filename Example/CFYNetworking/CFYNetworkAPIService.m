@@ -10,14 +10,12 @@
 
 @interface CFYNetworkAPIService ()
 
-@property (nonatomic, copy) NSString *baseURL;
-
 @end
 
 @implementation CFYNetworkAPIService
 
 - (NSString *)baseURL {
-    return @"";
+    return @"http://localhost:8080";
 }
 
 @end
